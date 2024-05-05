@@ -42,6 +42,7 @@ class Test_corporate:
         # self.phone = self.random_d.genrate_random_phone()
         self.email = self.random_d.random_email()
 
+
         # self.rows = XLUtils.getRowCount(self.path, 'sheet1')
         #
         # for r in range(2, self.rows + 1):
