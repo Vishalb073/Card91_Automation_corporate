@@ -78,4 +78,4 @@ class Test_corporate:
         self.cp.admin_mobile(self.phone)
         self.cp.admin_email(self.email)
         self.cp.submit_button()
-
+        self.cp.close_button()
