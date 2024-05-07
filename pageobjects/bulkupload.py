@@ -11,11 +11,12 @@ from selenium.webdriver.support.wait import WebDriverWait
 class bulk_upload:
     ccms_btn_xpath = '//a[@href="/bulkUpload/"]'
     file_download_xpath = "//a[@class ='d-flex tx-12 justify-content-start mt-1']"
-    dropdown_css = "css-8mmkcg"
+    dropdown_css = "svg.css-8mmkcg"
     corporate_customers = "div.css-1nmdiq5-menu"
     file_upload = "button[class='sc-uVWWZ KeIfD btn btn-primary']"
     send_file = "input[class='sc-hCPjZK hcSoGo form-control']"
-    upload = "button>div[class='sc-iGgWBj kqfRFm']"
+    # upload = "button>div[class='sc-iGgWBj kqfRFm']"
+    upload = "//div[normalize-space() = 'Upload the file']"
 
     def __init__(self, driver):
         self.driver = driver
@@ -41,24 +42,33 @@ class bulk_upload:
                           attachment_type=AttachmentType.PNG)
             print(f"Element not found: {e}")
 
-    def upload_btn(self , file):
+    def upload_btn(self ):
         try:
             self.driver.find_element(By.CSS_SELECTOR, self.file_upload).click()
-            time.sleep(2)
-            self.driver.find_element(By.CSS_SELECTOR, self.send_file).send_keys(file)
-            time.sleep(2)
-            self.driver.find_element(By.CSS_SELECTOR, self.upload).click()
         except NoSuchElementException as e:
             allure.attach(self.driver.get_screenshot_as_png(), name="bulkupload",
                           attachment_type=AttachmentType.PNG)
             print(f"Element not found: {e}")
 
-    def customers(self):
+    def send_key(self , file):
+        self.driver.find_element(By.CSS_SELECTOR, self.send_file).send_keys(file)
+        time.sleep(2)
+        # self.driver.find_element(By.XPATH, self.upload).click()
+
+    def customers(self ):
         try:
             self.driver.find_element(By.CSS_SELECTOR, self.dropdown_css).click()
             self.driver.find_element(By.CSS_SELECTOR, self.corporate_customers).click()
+            time.sleep(2)
         except NoSuchElementException as e:
             print(f"Element not found: {e}")
+
+    def customers_file(self , file1):
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, self.file_upload)))
+        element.click()
+        # self.driver.find_element(By.CSS_SELECTOR, self.file_upload).click()
+        self.driver.find_element(By.CSS_SELECTOR, self.send_file).send_keys(file1)
 
     def upload_(self):
         try:

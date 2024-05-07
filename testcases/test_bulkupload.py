@@ -19,14 +19,19 @@ class TestBulkUpload:
 
     @pytest.mark.usefixtures("login_setup1")
     def test_bulk(self, login_setup1):
-        file = "/home/vishal/Downloads/Corporate_Limits_updated1.csv"
-        file1 = "/home/vishal/Downloads/Corporate_Limits_1 (7).csv"
+        file = "/home/vishal/Downloads/Corporate_Limits_updated4.csv"
+        file1 = "/home/vishal/Downloads/Corporate_Limits_1 (8).csv"
         self.driver = login_setup1
         #self.driver.get(self.baseURL)
         self.bu = bulk_upload(self.driver)
         self.bu.bulk_btn()
         self.bu.file_download()
-        self.bu.upload_btn(file)
+        self.bu.upload_btn()
+        self.bu.send_key(file)
+        time.sleep(2)
+        self.bu.upload_()
+        time.sleep(5)
         self.bu.customers()
-        self.bu.upload_btn(file1)
+        self.bu.customers_file(file1)
+        # self.bu.upload_btn(file1)
 
