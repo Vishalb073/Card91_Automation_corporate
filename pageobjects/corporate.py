@@ -1,3 +1,5 @@
+import allure
+from allure_commons.types import AttachmentType
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import StaleElementReferenceException, NoSuchElementException
 from selenium.webdriver.common.by import By
@@ -14,7 +16,7 @@ class corporatePage:
     Gst_num_Id = "gst"
     pan_num_Id = "pan"
     dropdown_Name = "css-8mmkcg"
-    select_security = "//input[@value='FD']"            #"div.css-1nmdiq5-menu"
+    select_security = "div.css-1nmdiq5-menu"
     security_number_ID = "securityNumber"
     security_amount_ID = "securityAmount"
     address_css_path = "#addressOne"
@@ -27,7 +29,8 @@ class corporatePage:
     admin_email_Id = "adminEmail"
     submit_css = "//button[@id='corporateOnboardingForm']"
     closebtn_css = "btn-close"
-
+    cardmap_xpath = "div>button>svg[viewBox='0 0 24 24']"
+    submit_class = "div[class='sc-eqUAAy hIDAJQ']"
     def __init__(self, driver):
         self.driver = driver
 
@@ -40,6 +43,7 @@ class corporatePage:
                 element.click()
                 break
             except StaleElementReferenceException:
+                allure.attach(self.driver.get_screenshot_as_png(),name="testCorporate", attachment_type=AttachmentType.PNG)
                 continue
         # self.driver.find_element(By.XPATH, self.corporateBtn_xpath).click()
 
@@ -47,6 +51,7 @@ class corporatePage:
         try:
          self.driver.find_element(By.CSS_SELECTOR, self.onboardBtn_css).click()
         except NoSuchElementException as e:
+            allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)
             print(f"Element not found: {e}")
 
     def company_name(self, c_name):
@@ -54,12 +59,14 @@ class corporatePage:
             company_info = self.driver.find_element(By.CSS_SELECTOR, self.companyname_css)
             company_info.send_keys(c_name)
         except NoSuchElementException as e:
+            allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)
             print(f"Element not found: {e}")
     def buisness_Type(self, buisness_Type):
         try:
             buisness = self.driver.find_element(By.CSS_SELECTOR, self.buisnesssType_css)
             buisness.send_keys(buisness_Type)
         except NoSuchElementException as e:
+            allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)
             print(f"Element not found: {e}")
 
     def company_logo(self, path):
@@ -74,6 +81,7 @@ class corporatePage:
             gst = self.driver.find_element(By.ID, self.Gst_num_Id)
             gst.send_keys(gstnumber)
         except NoSuchElementException as e:
+            allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)
             print(f"Element not found: {e}")
 
     def pan_num(self, pannumber):
@@ -81,6 +89,7 @@ class corporatePage:
             pan = self.driver.find_element(By.ID, self.pan_num_Id)
             pan.send_keys(pannumber)
         except NoSuchElementException as e:
+            allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)
             print(f"Element not found: {e}")
 
     def dropDown(self):
@@ -89,10 +98,11 @@ class corporatePage:
             dd.click()
             self.driver.find_element(By.CSS_SELECTOR, self.select_security).click()
         except NoSuchElementException as e:
+            allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)
             print(f"Element not found: {e}")
     # def dropDown(self):
     #     dd = WebDriverWait(self.driver, 10).until(
-    #         EC.element_to_be_clickable((By.CLASS_NAME, "your_class_name_here"))
+    #         EC.element_to_be_clickable((By.CLASS_NAME, ))
     #     )
     #     dd.click()
     #     self.driver.find_element(By.CSS_SELECTOR, self.select_security).click()
@@ -101,6 +111,7 @@ class corporatePage:
             number = self.driver.find_element(By.ID, self.security_number_ID)
             number.send_keys(securitynumber)
         except NoSuchElementException as e:
+            allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)
             print(f"Element not found: {e}")
 
     def security_amount(self, securityamount):
@@ -108,6 +119,7 @@ class corporatePage:
             amount = self.driver.find_element(By.ID, self.security_amount_ID)
             amount.send_keys(securityamount)
         except NoSuchElementException as e:
+            allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)
             print(f"Element not found: {e}")
 
     def address(self, address1):
@@ -116,6 +128,7 @@ class corporatePage:
             addr = self.driver.find_element(By.CSS_SELECTOR, self.address_css_path)
             addr.send_keys(address1)
         except NoSuchElementException as e:
+            allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)
             print(f"Element not found: {e}")
 
     def address_1(self, address2):
@@ -123,6 +136,7 @@ class corporatePage:
             addr1 = self.driver.find_element(By.CSS_SELECTOR, self.address_css_path2)
             addr1.send_keys(address2)
         except NoSuchElementException as e:
+            allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)
             print(f"Element not found: {e}")
 
     def addr_city(self, cities):
@@ -130,6 +144,7 @@ class corporatePage:
             city = self.driver.find_element(By.ID, self.city_Id)
             city.send_keys(cities)
         except NoSuchElementException as e:
+            allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)
             print(f"Element not found: {e}")
 
     def addr_state(self, state):
@@ -137,6 +152,7 @@ class corporatePage:
             states = self.driver.find_element(By.ID, self.state_Id)
             states.send_keys(state)
         except NoSuchElementException as e:
+            allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)
             print(f"Element not found: {e}")
 
     def addr_pin(self, pincode):
@@ -144,6 +160,7 @@ class corporatePage:
             pin = self.driver.find_element(By.ID, self.pincode_Id)
             pin.send_keys(pincode)
         except NoSuchElementException as e:
+            allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)
             print(f"Element not found: {e}")
 
     def admin_name(self, name):
@@ -151,6 +168,7 @@ class corporatePage:
             a_name = self.driver.find_element(By.ID, self.admin_name_Id)
             a_name.send_keys(name)
         except NoSuchElementException as e:
+            allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)
             print(f"Element not found: {e}")
 
     def admin_mobile(self, mobile):
@@ -158,6 +176,7 @@ class corporatePage:
             a_mobile = self.driver.find_element(By.ID, self.admin_mobile_Id)
             a_mobile.send_keys(mobile)
         except NoSuchElementException as e:
+            allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)
             print(f"Element not found: {e}")
 
     def admin_email(self, email):
@@ -165,6 +184,7 @@ class corporatePage:
             a_email = self.driver.find_element(By.ID, self.admin_email_Id)
             a_email.send_keys(email)
         except NoSuchElementException as e:
+            allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)
             print(f"Element not found: {e}")
 
     def submit_button(self):
@@ -173,10 +193,33 @@ class corporatePage:
             button = wait.until(EC.element_to_be_clickable((By.XPATH, self.submit_css)))
             button.click()
         except NoSuchElementException as e:
+            allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)
             print(f"Element not found: {e}")
         # button = self.driver.find_element(By.XPATH, self.submit_css)
         # button.click()
 
     def close_button(self):
-        self.driver.find_element(By.CLASS_NAME, self.closebtn_css).click()
+        try:
+            self.driver.find_element(By.CLASS_NAME, self.closebtn_css).click()
+            self.driver.refresh()
+        except NoSuchElementException as e:
+            allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)
+            print(f"Element not found: {e}")
 
+    def card_map(self):
+
+        try:
+            elements = self.driver.find_elements(By.CSS_SELECTOR , self.cardmap_xpath)
+            print(len(elements))
+            elements[0].click()
+        except NoSuchElementException as e:
+            allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)
+            print(f"Element not found: {e}")
+
+    def submit1(self):
+        try:
+
+            self.driver.find_element(By.CSS_SELECTOR , self.submit_class).click()
+        except NoSuchElementException as e:
+            allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)
+            print(f"Element not found: {e}")

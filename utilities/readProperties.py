@@ -3,6 +3,7 @@ import configparser
 config = configparser.RawConfigParser()
 config.read("./Configurations/config.ini")
 
+
 class ReadConfig:
     @staticmethod
     def getApplicationURL():
@@ -73,3 +74,14 @@ class ReadConfig:
     def getadmin():
         adminname = config.get('common info' , 'Admin')
         return adminname
+
+    @staticmethod
+    def geturl():
+        url = config.get('ccms info','base_Url')
+        return url
+
+    @staticmethod
+    def getph():
+        ph = config.get('ccms info','phone_nu')
+        return ph
+

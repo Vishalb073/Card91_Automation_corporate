@@ -1,5 +1,5 @@
 import os
-
+import allure
 import pytest
 from selenium import webdriver
 
@@ -12,7 +12,7 @@ from utilities.readProperties import ReadConfig
 from utilities.customlogger import LogGen
 
 
-
+@allure.severity(allure.severity_level.NORMAL)
 class Test_corporate:
     baseURL = ReadConfig.getApplicationURL()
     emailId = ReadConfig.getusermail()
@@ -80,3 +80,9 @@ class Test_corporate:
         self.cp.admin_email(self.email)
         self.cp.submit_button()
         self.cp.close_button()
+
+        time.sleep(5)
+        self.cp.card_map()
+        time.sleep(5)
+        self.cp.dropDown()
+        self.cp.submit1()
