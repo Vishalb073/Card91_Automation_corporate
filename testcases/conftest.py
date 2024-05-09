@@ -28,7 +28,7 @@ def login_setup():
 @pytest.fixture(scope='class')
 def login_setup1():
     baseUri = ReadConfig.geturl()
-    phone_nu = ReadConfig.getph()
+    phone_nu = ReadConfig.getappph()
     password = ReadConfig.getuserpassword()
 
     driver = webdriver.Chrome()
@@ -45,3 +45,6 @@ def login_setup1():
 
     yield driver
     driver.close()
+
+
+

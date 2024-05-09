@@ -27,7 +27,7 @@ class ReadConfig:
 
     @staticmethod
     def getBuisnesstype():
-        buisnesstype =config.get('common info', 'Comapny_name')
+        buisnesstype =config.get('common info', 'Buisness_type')
         return buisnesstype
 
     @staticmethod
@@ -85,3 +85,7 @@ class ReadConfig:
         ph = config.get('ccms info','phone_nu')
         return ph
 
+    @staticmethod
+    def getappph():
+        ph = config.get('approval','phone_nu1')
+        return ph

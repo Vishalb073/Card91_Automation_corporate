@@ -27,7 +27,7 @@ class corporatePage:
     admin_name_Id = "adminName"
     admin_mobile_Id = "adminMobile"
     admin_email_Id = "adminEmail"
-    submit_css = "//button[@id='corporateOnboardingForm']"
+    submit_css = "//*[@id='corporateOnboardingForm']"
     closebtn_css = "btn-close"
     cardmap_xpath = "div>button>svg[viewBox='0 0 24 24']"
     submit_class = "div[class='sc-eqUAAy hIDAJQ']"
@@ -209,6 +209,7 @@ class corporatePage:
     def card_map(self):
 
         try:
+            self.driver.refresh()
             elements = self.driver.find_elements(By.CSS_SELECTOR , self.cardmap_xpath)
             print(len(elements))
             elements[0].click()
@@ -218,7 +219,6 @@ class corporatePage:
 
     def submit1(self):
         try:
-
             self.driver.find_element(By.CSS_SELECTOR , self.submit_class).click()
         except NoSuchElementException as e:
             allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)

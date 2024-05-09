@@ -3,7 +3,7 @@ import os
 
 class LogGen:
     @staticmethod
-    def loggen():
+    def logger():
         log_dir = "Logs"
         if not os.path.exists(log_dir):
             os.makedirs(log_dir)

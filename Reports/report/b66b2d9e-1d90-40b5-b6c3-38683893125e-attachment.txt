@@ -1,0 +1,2 @@
+[32mINFO    [0m root:test_bulkupload.py:31 ============logged in to corporate portal============
+[32mINFO    [0m root:test_bulkupload.py:47 ============getting downloaded file============

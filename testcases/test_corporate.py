@@ -1,3 +1,4 @@
+import csv
 import os
 import allure
 import pytest
@@ -59,7 +60,6 @@ class Test_corporate:
         #     self.adminname = XLUtils.readData(self.path, 'sheet1', r, 11)
         #
         #
-
         self.cp.corporate_button()
         self.cp.onboard_button()
         self.cp.company_name(self.company)
@@ -79,10 +79,11 @@ class Test_corporate:
         self.cp.admin_mobile(self.phone)
         self.cp.admin_email(self.email)
         self.cp.submit_button()
+        time.sleep(5)
         self.cp.close_button()
 
-        time.sleep(5)
-        self.cp.card_map()
-        time.sleep(5)
-        self.cp.dropDown()
-        self.cp.submit1()
+        # time.sleep(5)
+        # self.cp.card_map()
+        # time.sleep(5)
+        # self.cp.dropDown()
+        # self.cp.submit1()

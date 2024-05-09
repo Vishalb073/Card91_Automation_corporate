@@ -4,14 +4,15 @@ import string
 
 class randomData:
     def generate_random_string(self):
-        first_two_integers = ''.join(random.choices(string.digits, k=2))
-        five_uppercase_chars = ''.join(random.choices(string.ascii_uppercase, k=5))
-        four_integers = ''.join(random.choices(string.digits, k=4))
-        one_uppercase_char = random.choice(string.ascii_uppercase)
-        one_integer = random.choice(string.digits) + 'Z'
-        two_uppercase_chars = ''.join(random.choices(string.ascii_uppercase, k=1))
+        gst_prefix = ''.join(random.choices('0123456789', k=2))
+        gst_mid = ''.join(random.choices('ABCDEFGHIJKLMNOPQRSTUVWXYZ', k=5))
+        gst_year = ''.join(random.choices('0123456789', k=4))
+        gst_month = ''.join(random.choices('ABCDEFGHIJKLMNOPQRSTUVWXYZ', k=1))
+        gst_day = ''.join(random.choices('0123456789', k=1))
+        gst_suffix = ''.join(random.choices('ABCDEFGHIJKLMNOPQRSTUVWXYZ', k=1))
 
-        return f"{first_two_integers}{five_uppercase_chars}{four_integers}{one_uppercase_char}{one_integer}{two_uppercase_chars}"
+        return f"{gst_prefix}{gst_mid}{gst_year}{gst_month}{gst_day}{'Z'}{gst_suffix}"
+
 
     def generate_random_Pan(self):
         five_uppercase_chars = ''.join(random.choices(string.ascii_uppercase, k=5))
