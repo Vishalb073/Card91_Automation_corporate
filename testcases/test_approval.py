@@ -23,17 +23,13 @@ class TestApproval:
         self.aq.approval_queue()
 
     def test_able_to_odd_box(self , login_setup1):
-        self.LogGen.info("******* Starting Test_002_DDT_Login Test **********")
+        # self.LogGen.info("******* Starting Test_odd_check_Box **********")
         self.driver = login_setup1
         self.aq = approval(self.driver)
         self.aq.approval_queue()
         self.aq.click_odd_checkBoxes()
         time.sleep(5)
         assert self.aq.check_odd_checkboxes_is_selected()
-
-        # else:
-        #     assert False
-
 
         time.sleep(2)
 
@@ -48,7 +44,7 @@ class TestApproval:
         self.driver = login_setup1
         self.aq = approval(self.driver)
         self.aq.approval_queue()
-        self.aq.clickaccept(2)
+        self.aq.clickaccept(0)
 
     def test_aprovebutton_is_clicked(self , login_setup1):
         self.driver = login_setup1

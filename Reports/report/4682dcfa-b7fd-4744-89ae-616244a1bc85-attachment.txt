@@ -1,0 +1,6 @@
+[33mWARNING [0m selenium.webdriver.common.selenium_manager:selenium_manager.py:127 There was an error managing chromedriver (error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json)); using driver found in the cache
+[33mWARNING [0m selenium.webdriver.common.selenium_manager:selenium_manager.py:127 Error sending stats to Plausible: error sending request for url (https://plausible.io/api/event)
+[32mINFO    [0m root:test_bulkupload.py:34 ============logged in to corporate portal============
+[32mINFO    [0m root:test_bulkupload.py:50 ============getting downloaded file============
+[32mINFO    [0m root:test_bulkupload.py:50 ============getting downloaded file============
+[32mINFO    [0m root:test_bulkupload.py:50 ============getting downloaded file============

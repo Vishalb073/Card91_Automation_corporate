@@ -67,6 +67,7 @@ class Test_corporate:
         self.cp.company_logo(self.logo)
         self.cp.gst_num(self.gst_no)
         self.cp.pan_num(self.pan_nu)
+        self.cp.approval_limit(1000000)
         self.cp.dropDown()
         self.cp.security_num(self.sec_num)
         self.cp.security_amount(self.sec_amt)
@@ -79,8 +80,8 @@ class Test_corporate:
         self.cp.admin_mobile(self.phone)
         self.cp.admin_email(self.email)
         self.cp.submit_button()
-        time.sleep(5)
-        self.cp.close_button()
+        time.sleep(10)
+        # self.cp.close_button()
 
         # time.sleep(5)
         # self.cp.card_map()

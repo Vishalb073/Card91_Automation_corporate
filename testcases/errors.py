@@ -16,4 +16,5 @@ SECURITY_AMOUNT_ERROR_MESSAGE ="[Security amount should be either empty String o
 DATE_OF_BIRTH_ERROR_MESSAGE ="Customer should be at least 18 years of age"
 SECURITY_TYPE_ERR ="[Security Type should be GOLD or FD]"
 EMPLOYMENT_DURATION_ERROR = "[Employment duration should be positive integer]"
+FILE_UPLOADED_SUCESSFULL = "test_file_records_is_displayed Request received for Corporate Customer Onboarding. Please check status after sometime"
 

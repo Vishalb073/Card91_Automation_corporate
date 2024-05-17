@@ -27,10 +27,11 @@ class corporatePage:
     admin_name_Id = "adminName"
     admin_mobile_Id = "adminMobile"
     admin_email_Id = "adminEmail"
-    submit_css = "//*[@id='corporateOnboardingForm']"
+    submit_css = "//div[text()='Submit']"
     closebtn_css = "btn-close"
     cardmap_xpath = "div>button>svg[viewBox='0 0 24 24']"
     submit_class = "div[class='sc-eqUAAy hIDAJQ']"
+    approval_limit_ip = "//*[@id='approvedLimit']"
     def __init__(self, driver):
         self.driver = driver
 
@@ -217,6 +218,12 @@ class corporatePage:
             allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)
             print(f"Element not found: {e}")
 
+    def approval_limit(self , limit):
+        try:
+            self.driver.find_element(By.XPATH, self.approval_limit_ip).send_keys(limit)
+        except NoSuchElementException as e:
+            allure.attach(self.driver.get_screenshot_as_png(), name="testCorporate", attachment_type=AttachmentType.PNG)
+            print(f"Element not found: {e}")
     def submit1(self):
         try:
             self.driver.find_element(By.CSS_SELECTOR , self.submit_class).click()

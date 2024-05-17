@@ -4,7 +4,7 @@ import os
 class LogGen:
     @staticmethod
     def logger():
-        log_dir = "Logs"
+        log_dir = "/home/vishal/PycharmProjects/corporate_Automation_Project/Logs"
         if not os.path.exists(log_dir):
             os.makedirs(log_dir)
 

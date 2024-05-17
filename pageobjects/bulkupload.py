@@ -139,6 +139,12 @@ class bulk_upload:
         except NoSuchElementException as e:
             print(f"Element not found: {e}")
 
+    def get_sucess_message(self):
+            alertwindow = self.driver.find_element(By.XPATH , "//div[@class='Toastify']//div//div//div//div[2]")
+            alert_text =  alertwindow.text
+            return alert_text
+
+
     # def get_message(self):
     #     mess = self.driver.find_element(By.XPATH , self.message_read)
     #     message = mess.text
